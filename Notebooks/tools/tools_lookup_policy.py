@@ -33,5 +33,5 @@ def lookup_policy(query: str) -> str:
     docs = vectordb.similarity_search(query, k=CFG.k)
     return "\n\n".join([doc.page_content for doc in docs])
 
-result = lookup_policy('What are the flight tariff categories?')
-print(result)
+# result = lookup_policy('What are the flight tariff categories?')
+# print(result)

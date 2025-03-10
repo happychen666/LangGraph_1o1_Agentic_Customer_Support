@@ -17,7 +17,8 @@ class LoadConfig:
         self.vectordb_dir = here(app_config["RAG"]["vectordb"])
         self.collection_name = str(app_config["RAG"]["collection_name"])
 
-        os.environ['OPENAI_API_KEY'] = os.getenv("OPEN_AI_API_KEY")
+        os.environ['OPENAI_API_KEY'] = os.getenv("OPENAI_API_KEY")
+        os.environ['OPENAI_API_BASE'] = os.getenv("OPENAI_API_BASE")
         self.llm = ChatOpenAI(model=app_config["openai_models"]["model"])
         self.embedding_model = str(
             app_config["openai_models"]["embedding_model"])
