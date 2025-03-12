@@ -63,6 +63,7 @@ class AgenticGraph:
                 return "leave_skill"
             safe_toolnames = [
                 t.name for t in AGENT_RUNNABLES.update_flight_safe_tools]
+            
             if all(tc["name"] in safe_toolnames for tc in tool_calls):
                 return "update_flight_safe_tools"
             return "update_flight_sensitive_tools"

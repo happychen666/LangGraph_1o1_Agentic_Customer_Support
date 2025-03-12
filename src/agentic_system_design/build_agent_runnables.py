@@ -25,7 +25,9 @@ class AIAgentRunnables:
         update_flight_safe_tools = [search_flights]
         update_flight_sensitive_tools = [
             update_ticket_to_new_flight, cancel_ticket]
+        
         update_flight_tools = update_flight_safe_tools + update_flight_sensitive_tools
+        
         update_flight_runnable = AGENT_PROMPTS.flight_booking_prompt | CFG.llm.bind_tools(
             update_flight_tools + [CompleteOrEscalate]
         )

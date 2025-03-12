@@ -8,19 +8,19 @@ import os
 
 CFG = LoadConfig()
 db = CFG.local_file
-backup_file = CFG.backup_file
+# backup_file = CFG.backup_file
 
-# Check if the database and backup files exist
-db_exists = os.path.exists(db)
-backup_file_exists = os.path.exists(backup_file)
+# # Check if the database and backup files exist
+# db_exists = os.path.exists(db)
+# backup_file_exists = os.path.exists(backup_file)
 
-# If either the database or backup file does not exist, raise an error
-if not db_exists or not backup_file_exists:
-    raise FileNotFoundError(
-        "Database or backup file not found. Please prepare the databases by running the following commands:\n"
-        "python data_preparation/download_data.py\n"
-        "python data_preparation/prepare_vector_db.py"
-    )
+# # If either the database or backup file does not exist, raise an error
+# if not db_exists or not backup_file_exists:
+#     raise FileNotFoundError(
+#         "Database or backup file not found. Please prepare the databases by running the following commands:\n"
+#         "python data_preparation/download_data.py\n"
+#         "python data_preparation/prepare_vector_db.py"
+#     )
 
 graph_instance = AgenticGraph()
 graph = graph_instance.Compile_graph()

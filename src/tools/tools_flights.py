@@ -145,8 +145,8 @@ def update_ticket_to_new_flight(ticket_no: str, new_flight_id: int) -> str:
         new_flight_dict["scheduled_departure"], "%Y-%m-%d %H:%M:%S.%f%z"
     )
     time_until = (departure_time - current_time).total_seconds()
-    if time_until < (3 * 3600):
-        return f"Not permitted to reschedule to a flight that is less than 3 hours from the current time. Selected flight is at {departure_time}."
+    # if time_until < (3 * 3600):
+    #     return f"Not permitted to reschedule to a flight that is less than 3 hours from the current time. Selected flight is at {departure_time}."
 
     cursor.execute(
         "SELECT flight_id FROM ticket_flights WHERE ticket_no = ?", (
