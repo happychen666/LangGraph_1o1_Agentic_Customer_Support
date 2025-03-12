@@ -179,13 +179,6 @@ def update_ticket_to_new_flight(ticket_no: str, new_flight_id: int) -> str:
         "UPDATE ticket_flights SET flight_id = ? WHERE ticket_no = ?",
         (new_flight_id, ticket_no),
     )
-
-     # **同步更新 boarding_passes 表**
-    cursor.execute(
-        "UPDATE boarding_passes SET flight_id = ? WHERE ticket_no = ?",
-        (new_flight_id, ticket_no),
-    )
-    
     conn.commit()
 
     cursor.close()

@@ -1,0 +1,75 @@
+不懂的地方之--result==== runnable=tools(tags=None, recurse=True, func_accepts_config=True, func_accepts={'writer': False, 'store': True}, tools_by_name={'update_ticket_to_new_flight': StructuredTool(name='update_ti
+cket_to_new_flight', description="Update the user's ticket to a new valid flight.\n\n    Args:\n        ticket_no (str): The ticket number to be updated.\n        new_flight_id (int): The ID of the new flight to wh
+ich the ticket should be updated.\n\n    Returns:\n        str: A message indicating whether the ticket was successfully updated or if there were errors\n            such as an invalid flight ID, the flight being t
+oo soon, or the user not owning the ticket.", args_schema=<class 'langchain_core.utils.pydantic.update_ticket_to_new_flight'>, func=<function update_ticket_to_new_flight at 0x00000254F7193130>), 'cancel_ticket': St
+ructuredTool(name='cancel_ticket', description="Cancel the user's ticket and remove it from the database.\n\n    Args:\n        ticket_no (str): The ticket number to be cancelled.\n\n    Returns:\n        str: A me
+ssage indicating whether the ticket was successfully cancelled or if there were errors\n            such as no existing ticket being found or the user not owning the ticket.", args_schema=<class 'langchain_core.uti
+ls.pydantic.cancel_ticket'>, func=<function cancel_ticket at 0x00000254F7193D90>)}, tool_to_state_args={'update_ticket_to_new_flight': {}, 'cancel_ticket': {}}, tool_to_store_arg={'update_ticket_to_new_flight': Non
+e, 'cancel_ticket': None}, handle_tool_errors=True, messages_key='messages') fallbacks=[RunnableLambda(handle_tool_error)] exception_key='error'
+不懂的地方之--result==== runnable=tools(tags=None, recurse=True, func_accepts_config=True, func_accepts={'writer': False, 'store': True}, tools_by_name={'search_flights': StructuredTool(name='search_flights', descr
+iption='Search for flights based on departure airport, arrival airport, and departure time range.\n\n    Args:\n        departure_airport (Optional[str]): The airport code from which the flight is departing.\n
+   arrival_airport (Optional[str]): The airport code where the flight is arriving.\n        start_time (Optional[date | datetime]): The earliest departure time to filter flights.\n        end_time (Optional[date |
+datetime]): The latest departure time to filter flights.\n        limit (int): The maximum number of flights to return. Defaults to 20.\n\n    Returns:\n        list[dict]: A list of dictionaries where each diction
+ary contains the details of a flight\n            including all columns from the flights table.', args_schema=<class 'langchain_core.utils.pydantic.search_flights'>, func=<function search_flights at 0x00000254F7193
+0A0>)}, tool_to_state_args={'search_flights': {}}, tool_to_store_arg={'search_flights': None}, handle_tool_errors=True, messages_key='messages') fallbacks=[RunnableLambda(handle_tool_error)] exception_key='error'
+不懂的地方之--result==== runnable=tools(tags=None, recurse=True, func_accepts_config=True, func_accepts={'writer': False, 'store': True}, tools_by_name={'search_car_rentals': StructuredTool(name='search_car_rentals
+', description='Search for car rentals based on location, name, price tier, start date, and end date.\n\nArgs:\n    location (Optional[str]): The location of the car rental. Defaults to None.\n    name (Optional[st
+r]): The name of the car rental company. Defaults to None.\n    price_tier (Optional[str]): The price tier of the car rental. Defaults to None.\n    start_date (Optional[Union[datetime, date]]): The start date of t
+he car rental. Defaults to None.\n    end_date (Optional[Union[datetime, date]]): The end date of the car rental. Defaults to None.\n\nReturns:\n    list[dict]: A list of car rental dictionaries matching the search
+ criteria.', args_schema=<class 'langchain_core.utils.pydantic.search_car_rentals'>, func=<function search_car_rentals at 0x00000254F6A4F0A0>)}, tool_to_state_args={'search_car_rentals': {}}, tool_to_store_arg={'se
+arch_car_rentals': None}, handle_tool_errors=True, messages_key='messages') fallbacks=[RunnableLambda(handle_tool_error)] exception_key='error'
+不懂的地方之--result==== runnable=tools(tags=None, recurse=True, func_accepts_config=True, func_accepts={'writer': False, 'store': True}, tools_by_name={'book_car_rental': StructuredTool(name='book_car_rental', des
+cription='Book a car rental by its ID.\n\nArgs:\n    rental_id (int): The ID of the car rental to book.\n\nReturns:\n    str: A message indicating whether the car rental was successfully booked or not.', args_schem
+a=<class 'langchain_core.utils.pydantic.book_car_rental'>, func=<function book_car_rental at 0x00000254F6A4F130>), 'update_car_rental': StructuredTool(name='update_car_rental', description="Update a car rental's st
+art and end dates by its ID.\n\nArgs:\n    rental_id (int): The ID of the car rental to update.\n    start_date (Optional[Union[datetime, date]]): The new start date of the car rental. Defaults to None.\n    end_da
+te (Optional[Union[datetime, date]]): The new end date of the car rental. Defaults to None.\n\nReturns:\n    str: A message indicating whether the car rental was successfully updated or not.", args_schema=<class 'l
+angchain_core.utils.pydantic.update_car_rental'>, func=<function update_car_rental at 0x00000254F6A4F1C0>), 'cancel_car_rental': StructuredTool(name='cancel_car_rental', description='Cancel a car rental by its ID.\
+n\nArgs:\n    rental_id (int): The ID of the car rental to cancel.\n\nReturns:\n    str: A message indicating whether the car rental was successfully cancelled or not.', args_schema=<class 'langchain_core.utils.pyd
+antic.cancel_car_rental'>, func=<function cancel_car_rental at 0x00000254F6A4F6D0>)}, tool_to_state_args={'book_car_rental': {}, 'update_car_rental': {}, 'cancel_car_rental': {}}, tool_to_store_arg={'book_car_renta
+l': None, 'update_car_rental': None, 'cancel_car_rental': None}, handle_tool_errors=True, messages_key='messages') fallbacks=[RunnableLambda(handle_tool_error)] exception_key='error'
+不懂的地方之--result==== runnable=tools(tags=None, recurse=True, func_accepts_config=True, func_accepts={'writer': False, 'store': True}, tools_by_name={'search_hotels': StructuredTool(name='search_hotels', descrip
+tion='Search for hotels based on location, name, price tier, check-in date, and check-out date.\n\nArgs:\n    location (Optional[str]): The location of the hotel. Defaults to None.\n    name (Optional[str]): The na
+me of the hotel. Defaults to None.\n    price_tier (Optional[str]): The price tier of the hotel. Defaults to None. Examples: Midscale, Upper Midscale, Upscale, Luxury\n    checkin_date (Optional[Union[datetime, dat
+e]]): The check-in date of the hotel. Defaults to None.\n    checkout_date (Optional[Union[datetime, date]]): The check-out date of the hotel. Defaults to None.\n\nReturns:\n    list[dict]: A list of hotel dictiona
+ries matching the search criteria.', args_schema=<class 'langchain_core.utils.pydantic.search_hotels'>, func=<function search_hotels at 0x00000254F2917520>)}, tool_to_state_args={'search_hotels': {}}, tool_to_store
+_arg={'search_hotels': None}, handle_tool_errors=True, messages_key='messages') fallbacks=[RunnableLambda(handle_tool_error)] exception_key='error'
+不懂的地方之--result==== runnable=tools(tags=None, recurse=True, func_accepts_config=True, func_accepts={'writer': False, 'store': True}, tools_by_name={'book_hotel': StructuredTool(name='book_hotel', description='
+Book a hotel by its ID.\n\nArgs:\n    hotel_id (int): The ID of the hotel to book.\n\nReturns:\n    str: A message indicating whether the hotel was successfully booked or not.', args_schema=<class 'langchain_core.u
+tils.pydantic.book_hotel'>, func=<function book_hotel at 0x00000254F29175B0>), 'update_hotel': StructuredTool(name='update_hotel', description="Update a hotel's check-in and check-out dates by its ID.\n\nArgs:\n
+ hotel_id (int): The ID of the hotel to update.\n    checkin_date (Optional[Union[datetime, date]]): The new check-in date of the hotel. Defaults to None.\n    checkout_date (Optional[Union[datetime, date]]): The n
+ew check-out date of the hotel. Defaults to None.\n\nReturns:\n    str: A message indicating whether the hotel was successfully updated or not.", args_schema=<class 'langchain_core.utils.pydantic.update_hotel'>, fu
+nc=<function update_hotel at 0x00000254F2917640>), 'cancel_hotel': StructuredTool(name='cancel_hotel', description='Cancel a hotel by its ID.\n\nArgs:\n    hotel_id (int): The ID of the hotel to cancel.\n\nReturns:
+\n    str: A message indicating whether the hotel was successfully cancelled or not.', args_schema=<class 'langchain_core.utils.pydantic.cancel_hotel'>, func=<function cancel_hotel at 0x00000254F29176D0>)}, tool_to
+_state_args={'book_hotel': {}, 'update_hotel': {}, 'cancel_hotel': {}}, tool_to_store_arg={'book_hotel': None, 'update_hotel': None, 'cancel_hotel': None}, handle_tool_errors=True, messages_key='messages') fallback
+s=[RunnableLambda(handle_tool_error)] exception_key='error'
+不懂的地方之--result==== runnable=tools(tags=None, recurse=True, func_accepts_config=True, func_accepts={'writer': False, 'store': True}, tools_by_name={'search_trip_recommendations': StructuredTool(name='search_tr
+ip_recommendations', description='Search for trip recommendations based on location, name, and keywords.\n\nArgs:\n    location (Optional[str]): The location of the trip recommendation. Defaults to None.\n    name
+(Optional[str]): The name of the trip recommendation. Defaults to None.\n    keywords (Optional[str]): The keywords associated with the trip recommendation. Defaults to None.\n\nReturns:\n    list[dict]: A list of
+trip recommendation dictionaries matching the search criteria.', args_schema=<class 'langchain_core.utils.pydantic.search_trip_recommendations'>, func=<function search_trip_recommendations at 0x00000254F6A4C040>)},
+ tool_to_state_args={'search_trip_recommendations': {}}, tool_to_store_arg={'search_trip_recommendations': None}, handle_tool_errors=True, messages_key='messages') fallbacks=[RunnableLambda(handle_tool_error)] exce
+ption_key='error'
+不懂的地方之--result==== runnable=tools(tags=None, recurse=True, func_accepts_config=True, func_accepts={'writer': False, 'store': True}, tools_by_name={'book_excursion': StructuredTool(name='book_excursion', descr
+iption='Book a excursion by its recommendation ID.\n\nArgs:\n    recommendation_id (int): The ID of the trip recommendation to book.\n\nReturns:\n    str: A message indicating whether the trip recommendation was su
+ccessfully booked or not.', args_schema=<class 'langchain_core.utils.pydantic.book_excursion'>, func=<function book_excursion at 0x00000254F2917BE0>), 'update_excursion': StructuredTool(name='update_excursion', des
+cription="Update a trip recommendation's details by its ID.\n\nArgs:\n    recommendation_id (int): The ID of the trip recommendation to update.\n    details (str): The new details of the trip recommendation.\n\nRet
+urns:\n    str: A message indicating whether the trip recommendation was successfully updated or not.", args_schema=<class 'langchain_core.utils.pydantic.update_excursion'>, func=<function update_excursion at 0x000
+00254F6650430>), 'cancel_excursion': StructuredTool(name='cancel_excursion', description='Cancel a trip recommendation by its ID.\n\nArgs:\n    recommendation_id (int): The ID of the trip recommendation to cancel.\
+n\nReturns:\n    str: A message indicating whether the trip recommendation was successfully cancelled or not.', args_schema=<class 'langchain_core.utils.pydantic.cancel_excursion'>, func=<function cancel_excursion
+at 0x00000254F66513F0>)}, tool_to_state_args={'book_excursion': {}, 'update_excursion': {}, 'cancel_excursion': {}}, tool_to_store_arg={'book_excursion': None, 'update_excursion': None, 'cancel_excursion': None}, h
+andle_tool_errors=True, messages_key='messages') fallbacks=[RunnableLambda(handle_tool_error)] exception_key='error'
+不懂的地方之--result==== runnable=tools(tags=None, recurse=True, func_accepts_config=True, func_accepts={'writer': False, 'store': True}, tools_by_name={'tavily_search_results_json': TavilySearchResults(max_results
+=2, api_wrapper=TavilySearchAPIWrapper(tavily_api_key=SecretStr('**********'))), 'search_flights': StructuredTool(name='search_flights', description='Search for flights based on departure airport, arrival airport,
+and departure time range.\n\n    Args:\n        departure_airport (Optional[str]): The airport code from which the flight is departing.\n        arrival_airport (Optional[str]): The airport code where the flight is
+ arriving.\n        start_time (Optional[date | datetime]): The earliest departure time to filter flights.\n        end_time (Optional[date | datetime]): The latest departure time to filter flights.\n        limit
+(int): The maximum number of flights to return. Defaults to 20.\n\n    Returns:\n        list[dict]: A list of dictionaries where each dictionary contains the details of a flight\n            including all columns
+from the flights table.', args_schema=<class 'langchain_core.utils.pydantic.search_flights'>, func=<function search_flights at 0x00000254F71930A0>), 'lookup_policy': StructuredTool(name='lookup_policy', description
+="Consult the company policies to check whether certain options are permitted.\nUse this before making any flight changes performing other 'write' events.", args_schema=<class 'langchain_core.utils.pydantic.lookup_
+policy'>, func=<function lookup_policy at 0x00000254F2914310>)}, tool_to_state_args={'tavily_search_results_json': {}, 'search_flights': {}, 'lookup_policy': {}}, tool_to_store_arg={'tavily_search_results_json': No
+ne, 'search_flights': None, 'lookup_policy': None}, handle_tool_errors=True, messages_key='messages') fallbacks=[RunnableLambda(handle_tool_error)] exception_key='error'
+=======================
+thread_id: ca96d2d8-5ebb-4161-8b76-b14484aa9c11
+=======================
+D:\AppGallery\conda\envs\env-name\lib\site-packages\gradio\components\chatbot.py:242: UserWarning: You have not specified a value for the `type` parameter. Defaulting to the 'tuples' format for chatbot messages, bu
+t this is deprecated and will be removed in a future version of Gradio. Please set type='messages' instead, which uses openai-style dictionaries with 'role' and 'content' keys.
+  warnings.warn(
+* Running on local URL:  http://127.0.0.1:7860

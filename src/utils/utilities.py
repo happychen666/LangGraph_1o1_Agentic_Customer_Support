@@ -47,9 +47,10 @@ def create_tool_node_with_fallback(tools: list) -> dict:
     Returns:
         dict: A `ToolNode` configured with fallback error handling.
     """
-    return ToolNode(tools).with_fallbacks(
+    result = ToolNode(tools).with_fallbacks(
         [RunnableLambda(handle_tool_error)], exception_key="error"
     )
+    return result
 
 
 def _print_event(event: dict, _printed: set, max_length=1500):
@@ -75,7 +76,7 @@ def _print_event(event: dict, _printed: set, max_length=1500):
             msg_repr = message.pretty_repr(html=True)
             if len(msg_repr) > max_length:
                 msg_repr = msg_repr[:max_length] + " ... (truncated)"
-            print(msg_repr)
+            print('\n msg_repr ======',msg_repr)
             _printed.add(message.id)
 
 

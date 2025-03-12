@@ -19,7 +19,10 @@ class AgenticGraph:
         self.builder.add_edge(START, "fetch_user_info")
 
     def user_info(self, state: State):
-        return {"user_info": fetch_user_flight_information.invoke({})}
+        result = fetch_user_flight_information.invoke({})
+        print(f'fetch_user_flight_information.invoke()==== {result}')
+        return {"user_info": result}
+
 
     # ============================
     # Flight booking assistant
